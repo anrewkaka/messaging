@@ -69,6 +69,7 @@
 
     <!-- firebase setting -->
     <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-messaging.js"></script>
     <script>
       // Initialize Firebase
@@ -83,6 +84,8 @@
 
       // Retrieve Firebase Messaging object.
       const messaging = firebase.messaging();
+
+      const database = firebase.database();
     </script>
   </head>
   <body>
@@ -116,6 +119,11 @@
           if (currentToken) {
             console.log("currentToken", currentToken);
             $("#token").html(currentToken);
+            
+            firebase.database().ref('registration_ids_' + Date.now()).set({
+                token: currentToken
+              });
+            
           } else {
             // Show permission request.
             console.log('No Instance ID token available. Request permission to generate one.');
