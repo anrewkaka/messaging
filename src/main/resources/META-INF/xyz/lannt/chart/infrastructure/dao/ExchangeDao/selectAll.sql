@@ -1,0 +1,19 @@
+SELECT
+    ID,
+    STCK_ID,
+    PRD_ID,
+    DTTM,
+    BUY_PRC
+    QTY,
+    TG1,
+    TG2,
+    TG3,
+    LOW_PRC_SELL,
+    SELL_PRC,
+    FEE,
+    STS,
+    LGC_DEL_FLG
+  FROM
+    EXCHANGE
+  WHERE
+    LGC_DEL_FLG = '0'

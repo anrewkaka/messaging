@@ -1,0 +1,13 @@
+# DB
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sys?useSSL=false
+    username: root
+    password: Abc12345
+
+# DOMA
+doma:
+  dialect: MYSQL
+  naming: SNAKE_LOWER_CASE
+ 

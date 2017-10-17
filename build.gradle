@@ -1,0 +1,66 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'xyz.lannt'
+version = "$version_application"
+sourceCompatibility = 1.8
+
+processResources.destinationDir = compileJava.destinationDir
+compileJava.dependsOn processResources
+
+jar {
+  baseName = "$project_name"
+  version = "$version"
+}
+
+repositories {
+  mavenCentral()
+  maven {url 'https://oss.sonatype.org/content/repositories/snapshots/'}
+}
+
+javadoc {
+    options.encoding = "$source_encoding"
+    options.docEncoding = "$source_encoding"
+    options.charSet = "$source_encoding"
+}
+
+test {
+    systemProperty "file.encoding", "$source_encoding"
+}
+
+dependencies {
+  compile(
+    'org.springframework.boot:spring-boot-starter-thymeleaf',
+  )
+  testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+sourceSets {
+  main {
+    java {
+      srcDirs = ['src/main/java']
+    }
+    resources {
+      srcDirs = ['src/main/resources']
+    }
+  }
+  test {
+    java {
+      srcDirs = ['src/test/java']
+    }
+    resources {
+      srcDirs = ['src/test/resources']
+    }
+  }
+}
+
