@@ -2,7 +2,7 @@
 server:
   port: 443
   ssl:
-    key-store: keystore.p12
+    key-store: src/main/resources/keystore.p12
     key-store-password: Abc12345
     keyStoreType: PKCS12
     keyAlias: tomcat
