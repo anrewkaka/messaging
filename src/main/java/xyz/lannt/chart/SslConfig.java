@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 public class SslConfig {
 
 	@Bean
-	TomcatEmbeddedServletContainerFactory servletContainer() {
+	public TomcatEmbeddedServletContainerFactory servletContainer() {
 		TomcatEmbeddedServletContainerFactory tomcat = new TomcatEmbeddedServletContainerFactory() {
 			@Override
 			protected void postProcessContext(Context context) {
