@@ -101,6 +101,16 @@
     </div>
 
     <script type="text/javascript">
+      $(document).ready(function() {
+        messaging.requestPermission()
+        .then(function() {
+          console.log('Notification permission granted.');
+        })
+        .catch(function(err) {
+          console.log('Unable to get permission to notify. ', err);
+        });
+      });
+      
       function subscribeFCM() {
         messaging.requestPermission()
         .then(function() {
