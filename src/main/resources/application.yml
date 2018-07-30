@@ -1,6 +1,11 @@
 # SERVER
 server:
-  port: 8080
+  port: 443
+  ssl:
+    key-store: keystore.p12
+    key-store-password: Abc12345
+    keyStoreType: PKCS12
+    keyAlias: tomcat
 # DB
 spring:
   thymeleaf:
